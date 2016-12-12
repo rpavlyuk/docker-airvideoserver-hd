@@ -1,0 +1,84 @@
+#
+# Build options
+#
+
+# Perform a clean build using mock tool
+CLEAN="no"
+
+# Fast build mode
+MODE="fast"
+
+# Project name
+PROJECT="airvideoserver-hd"
+
+# Build label. Will be used to mark the repository path.
+# It is recommended to have equal to the source code branch name.
+#  Default: trunk
+BRANCH="master"
+
+# Distro label
+DIST="el7"
+
+# Build architecture
+ARCH="x86_64"
+
+# Source directories to make (space-separated list). 
+# SVAROG will go into each directory and perform the build
+# using settings defined in this make file.
+# No separate makefiles are needed in those directories
+#
+#  Default: "."
+DIRECTORIES=( "." )
+
+# Use installed build tool (from /usr/bin/) or latest build tool from SCM
+BUILD_TOOL_DIR="/usr/bin"
+
+
+# Use SCM?
+DO_USE_SCM="yes"
+SVG_SCM_TYPE="git"
+DO_SCM_UPDATE="no"
+DO_SCM_REVERT="no"
+
+# SCM Authorization
+SVG_SCM_LOGIN="user"
+SVG_SCM_PASSWORD="password"
+SVG_SCM_AUTH_STRING="--username $SVG_SCM_LOGIN --password $SVG_SCM_PASSWORD"
+
+#
+# Publish options
+#
+#
+
+# Perform package publishing to YUM repository
+DO_PUBLISH="no"
+
+# Generate repo file
+DO_MAKE_REPO_FILE="no"
+
+# TODO: Remote publishing
+DO_REMOTE="no"
+
+# Local path where package repositories are stored
+TOP_REPO_DIR="/var/www/repo"
+
+# Repo base path
+PREFIX="$PROJECT-$BRANCH/$MODE/$DIST"
+
+# Publish directory
+DIR="$TOP_REPO_DIR/$PREFIX"
+
+# Generate metapackage
+DO_MAKE_METAPKG="no"
+
+# Metapackage repository location
+META_DIR="$TOP_REPO_DIR/meta"
+
+# Repo URL path
+URL="/repo/$PREFIX/$ARCH"
+
+# REPO host params
+REPO_PROTO="http"
+REPO_HOST="localhost"
+REPO_PORT="80"
+REPO_BASE="$URL"

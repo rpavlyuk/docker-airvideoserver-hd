@@ -1,0 +1,13 @@
+[Unit]
+Description=AirVideoServerHD
+After=syslog.target
+After=network.target
+
+[Service]
+User=airvideo
+Type=simple
+#Type=forking
+ExecStart=/usr/bin/airvideoserver-hd
+
+[Install]
+WantedBy=multi-user.target

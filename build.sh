@@ -16,5 +16,9 @@ svarog
 rm -rf .rpms && mkdir -p .rpms
 find ./repo -type f -name "*.rpm" -exec cp {} ./.rpms \;
 
+# build deps
+rpmbuild --rebuild srpms/miniupnpc-1.8-1.fc20.src.rpm
+find ~/rpmbuild -type f -name "miniupnpc-1.8*.rpm" -exec cp {} ./.rpms \;
+
 # Build docker container
 sudo docker build --rm -t local/c7-airvideoserver-hd .

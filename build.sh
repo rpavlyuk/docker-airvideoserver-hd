@@ -12,5 +12,9 @@ fi
 # Run svarog to build the RPMs
 svarog
 
+# collect packages
+rm -rf .rpms && mkdir -p .rpms
+find ./repo -type f -name "*.rpm" -exec cp {} ./.rpms \;
+
 # Build docker container
-docker build --rm -t local/c7-airvideoserver-hd .
+sudo docker build --rm -t local/c7-airvideoserver-hd .

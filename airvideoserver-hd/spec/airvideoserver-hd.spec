@@ -24,6 +24,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)-%
 %define		pkg_user airvideo
 %define		pkg_group %{pkg_user}
 
+AutoReqProv: no
 
 # BuildRequires:	
 

@@ -48,6 +48,7 @@ cp -a src/*.service $RPM_BUILD_ROOT/%{_unitdir}
 
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/%{_module}
 cp -a src/Server.properties $RPM_BUILD_ROOT/%{_sysconfdir}/%{_module}
+cp -a src/mounts.conf $RPM_BUILD_ROOT/%{_sysconfdir}/%{_module}
 
 mkdir -p $RPM_BUILD_ROOT/%{_bindir}
 cp -a src/docker-airvideoserver-hd $RPM_BUILD_ROOT/%{_bindir}/docker-airvideoserver-hd
@@ -56,6 +57,7 @@ cp -a src/docker-airvideoserver-hd $RPM_BUILD_ROOT/%{_bindir}/docker-airvideoser
 %doc
 
 %config(noreplace) %{_sysconfdir}/%{_module}/Server.properties
+%config(noreplace) %{_sysconfdir}/%{_module}/mounts.conf
 
 %attr(0755,root,root) %{_bindir}/docker-airvideoserver-hd
 

@@ -1,3 +1,5 @@
+%global __os_install_post %{nil}
+
 %define         _module airvideoserver-hd
 
 %{!?svn_revision:%define svn_revision 1}

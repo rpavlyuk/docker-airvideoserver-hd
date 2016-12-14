@@ -2,6 +2,7 @@
 
 NAME="airvideoserver-hd"
 CONTAINER="local/c7-airvideoserver-hd"
+MOUNTS="`cat /etc/docker-airvideoserver-hd/mounts.conf`"
 
 # kill existing one
 docker stop $NAME
@@ -14,6 +15,7 @@ docker run -it  \
   -v /var/lib/docker-airvideoserver-hd/logs:/var/lib/airvideoserver-hd/logs \
   -v /var/lib/docker-airvideoserver-hd/data:/var/lib/airvideoserver-hd/data \
   -v /var/lib/docker-airvideoserver-hd/converted:/var/lib/airvideoserver-hd/converted \
+  $MOUNTS \
   -p 45633:45633 \
   -p 45601:45601 \
   --name $NAME \

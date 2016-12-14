@@ -99,9 +99,9 @@ ln -s %{_sharedstatedir}/%{_module}/logs $RPM_BUILD_ROOT%{_localstatedir}/log/%{
 %attr(0755,%{pkg_user},%{pkg_group}) %{_localstatedir}/log/%{_module}
 
 %pre
-getent group %{pkg_group} >/dev/null || groupadd -r %{pkg_group}
+getent group %{pkg_group} >/dev/null || groupadd -r -g 1122 %{pkg_group}
 getent passwd %{pkg_user} >/dev/null || \
-    useradd -r -g %{pkg_group} -d %{_sharedstatedir}/%{_module} -s /sbin/nologin \
+    useradd -r -u 1122 -g %{pkg_group} -d %{_sharedstatedir}/%{_module} -s /sbin/nologin \
     -c "AirVideoServer HD account" %{pkg_user}
 exit 0
 

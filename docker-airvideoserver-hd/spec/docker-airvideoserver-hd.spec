@@ -25,6 +25,9 @@ Conflicts:	airvideoserver-hd
 %description
 AirVideoServer HD Docker container control service for CentOS/Fedora Linux family
 
+%define         pkg_user airvideo
+%define         pkg_group %{pkg_user}
+
 %prep
 %setup -n %{_module}
 
@@ -58,8 +61,14 @@ cp -a src/docker-airvideoserver-hd $RPM_BUILD_ROOT/%{_bindir}/docker-airvideoser
 
 %{_unitdir}/*.service
 
-%attr(0777, -, -) %{_sharedstatedir}/%{_module}/data
-%attr(0777, -, -) %{_sharedstatedir}/%{_module}/converted
-%attr(0777, -, -) %{_sharedstatedir}/%{_module}/logs
+%attr(0755,%{pkg_user},%{pkg_group}) %{_sharedstatedir}/%{_module}/data
+%attr(0755,%{pkg_user},%{pkg_group}) %{_sharedstatedir}/%{_module}/converted
+%attr(0755,%{pkg_user},%{pkg_group}) %{_sharedstatedir}/%{_module}/logs
 
+%pre
+getent group %{pkg_group} >/dev/null || groupadd -r -g 1122 %{pkg_group}
+getent passwd %{pkg_user} >/dev/null || \
+    useradd -r -u 1122 -g %{pkg_group} -d %{_sharedstatedir}/%{_module} -s /sbin/nologin \
+    -c "AirVideoServer HD account" %{pkg_user}
+exit 0
 

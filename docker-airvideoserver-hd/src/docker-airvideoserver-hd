@@ -8,12 +8,12 @@ docker stop $NAME
 docker rm $NAME
 
 # run a new container
-docker run  \
+docker run -it  \
   -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
-  -v /etc/airvideoserver-hd/Server.properties:/etc/airvideoserver-hd/Server.properties \
-  -v /var/lib/airvideoserver-hd/logs:/var/lib/airvideoserver-hd/logs \
-  -v /var/lib/airvideoserver-hd/data:/var/lib/airvideoserver-hd/data \
-  -v /var/lib/airvideoserver-hd/converted:/var/lib/airvideoserver-hd/converted \
+  -v /etc/docker-airvideoserver-hd/Server.properties:/etc/airvideoserver-hd/Server.properties \
+  -v /var/lib/docker-airvideoserver-hd/logs:/var/lib/airvideoserver-hd/logs \
+  -v /var/lib/docker-airvideoserver-hd/data:/var/lib/airvideoserver-hd/data \
+  -v /var/lib/docker-airvideoserver-hd/converted:/var/lib/airvideoserver-hd/converted \
   -p 45633:45633 \
   -p 45601:45601 \
   --name $NAME \

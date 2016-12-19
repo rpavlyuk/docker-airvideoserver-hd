@@ -21,4 +21,4 @@ rpmbuild --rebuild srpms/miniupnpc-1.8-1.fc20.src.rpm
 find ~/rpmbuild -type f -name "miniupnpc-1.8*.rpm" -exec cp {} ./.rpms \;
 
 # Build docker container
-sudo docker build --rm -t local/c7-airvideoserver-hd .
+docker build --rm -t rpavlyuk/c7-airvideoserver-hd .

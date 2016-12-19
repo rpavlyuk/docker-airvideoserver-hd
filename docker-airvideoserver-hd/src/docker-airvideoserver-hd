@@ -2,7 +2,7 @@
 set -u
 
 NAME="airvideoserver-hd"
-CONTAINER="local/c7-airvideoserver-hd"
+CONTAINER="rpavlyuk/c7-airvideoserver-hd"
 MOUNTS="`cat /etc/docker-airvideoserver-hd/mounts.conf`"
 EXISTS="yes"
 RUNNING="yes"

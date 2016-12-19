@@ -1,15 +1,41 @@
 #!/bin/bash
+set -u
 
 NAME="airvideoserver-hd"
 CONTAINER="local/c7-airvideoserver-hd"
 MOUNTS="`cat /etc/docker-airvideoserver-hd/mounts.conf`"
+EXISTS="yes"
+RUNNING="yes"
 
-# kill existing one
-docker stop $NAME
-docker rm $NAME
+# Determing if exists and running
+echo "Checking container $NAME status..."
+RUNNING=$(docker inspect --format="{{ .State.Running }}" $NAME 2> /dev/null)
+
+set -e
+
+if [ $? -eq 1 ]; then
+  echo "$NAME does not exist."
+  EXISTS="no"
+fi
+
+if [ "$RUNNING" == "false" ]; then
+  echo "$NAME is not running."
+  RUNNING="no"
+fi
+
+# stop existing one
+if [ "$RUNNING" == "yes" ];
+then
+  docker stop $NAME || :
+fi
+# kill it
+if [ "$EXISTS" == "yes" ];
+then
+  docker rm $NAME || :
+fi
 
 # run a new container
-docker run -it  \
+docker run  \
   -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
   -v /etc/docker-airvideoserver-hd/Server.properties:/etc/airvideoserver-hd/Server.properties \
   -v /var/lib/docker-airvideoserver-hd/logs:/var/lib/airvideoserver-hd/logs \

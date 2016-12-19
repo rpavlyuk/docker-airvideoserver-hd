@@ -4,9 +4,12 @@ After=docker.service
 Requires=docker.service
  
 [Service]
-TimeoutStartSec=3
-Restart=always
-ExecStart=/usr/bin/docker-airvideoserver-hd
+TimeoutStartSec=0
+Restart=no
+RestartSec=60s
+Type=notify
+NotifyAccess=all
+ExecStart=-/usr/bin/docker-airvideoserver-hd
  
 [Install]
 WantedBy=multi-user.target

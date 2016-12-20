@@ -11,8 +11,8 @@ Release:        %{svn_revision}%{?dist}
 Summary:        Docker container wrapper for AirVideoServer HD
 
 Group:          Multimedia/Servers
-License:        Other/Proprietary
-URL:            http://www.inmethod.com/airvideohd/index.html
+License:        LGPLv3
+URL:            https://github.com/rpavlyuk/docker-airvideoserver-hd/
 Packager:       Roman Pavlyuk <roman.pavlyuk@gmail.com>
 Source:         %{_module}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)-%{JOB_NAME}

@@ -25,7 +25,7 @@ if you are on CentOS 7.x then use ```yum```:
 ```
 sudo yum install docker-airvideoserver-hd -y
 ```
-* Open file ```/etc/docker-airvideoserver-hd/mounts.conf``` and specify which folders shall be exposed to the container. In other words, folders on your server where your media files are. Format is the following:``` -v [path_to_media_folder_on_the_server]:[path_to_media_folder_on_the_container]```. In fact, it is recommended to keep them the same, for example:
+* Open file ```/etc/docker-airvideoserver-hd/mounts.conf``` and specify which folders shall be exposed to the container. In other words, folders on your server where your media files are. Format is the following:``` -v [path_to_media_folder_on_the_server]:[path_to_media_folder_on_the_container]```. In fact, it is recommended to keep 'local' and 'container' paths the same, for example:
 ```
  -v /media:/media
 ```

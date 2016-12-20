@@ -41,6 +41,7 @@ DO_SCM_UPDATE="no"
 DO_SCM_REVERT="no"
 
 # SCM Authorization
+# SECURITY NOTE: Please either use GIT authorization OR put those values into Makefile.svarog.local
 SVG_SCM_LOGIN="user"
 SVG_SCM_PASSWORD="password"
 SVG_SCM_AUTH_STRING="--username $SVG_SCM_LOGIN --password $SVG_SCM_PASSWORD"
@@ -51,10 +52,10 @@ SVG_SCM_AUTH_STRING="--username $SVG_SCM_LOGIN --password $SVG_SCM_PASSWORD"
 #
 
 # Perform package publishing to YUM repository
-DO_PUBLISH="no"
+DO_PUBLISH="yes"
 
 # Generate repo file
-DO_MAKE_REPO_FILE="no"
+DO_MAKE_REPO_FILE="yes"
 
 # TODO: Remote publishing
 DO_REMOTE="no"
@@ -79,6 +80,6 @@ URL="/repo/$PREFIX/$ARCH"
 
 # REPO host params
 REPO_PROTO="http"
-REPO_HOST="localhost"
+REPO_HOST="repo.ukrspace.net"
 REPO_PORT="80"
 REPO_BASE="$URL"

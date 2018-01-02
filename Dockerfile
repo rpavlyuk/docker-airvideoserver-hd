@@ -21,9 +21,9 @@ rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
 rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
 rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
-VOLUME [ "/sys/fs/cgroup" ]
+# VOLUME [ "/sys/fs/cgroup" ]
 
-VOLUME ["/var/lib/airvideoserver-hd/converted", "/var/lib/airvideoserver-hd/data", "/var/lib/airvideoserver-hd/logs"]
+# VOLUME ["/var/lib/airvideoserver-hd/converted", "/var/lib/airvideoserver-hd/data", "/var/lib/airvideoserver-hd/logs"]
 
 COPY .rpms /rpms
 

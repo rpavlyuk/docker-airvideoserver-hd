@@ -1,0 +1,31 @@
+container: rpavlyuk/c7-airvideoserver-hd
+created: 2018-01-02 13:53:53.501852
+name: airvideoserver-hd
+ports:
+        45633/tcp: 45633
+        45601/tcp: 45601
+volumes:
+        /sys/fs/cgroup:
+                bind: /sys/fs/cgroup
+                mode: ro
+        /media:
+                bind: /media
+                mode: ro
+        /etc/docker-airvideoserver-hd/Server.properties:
+                bind: /etc/docker-airvideoserver-hd/Server.properties
+                mode: ro
+        /var/lib/docker-airvideoserver-hd/logs:
+                bind: /var/lib/docker-airvideoserver-hd/logs
+                mode: rw
+        /var/lib/docker-airvideoserver-hd/data:
+                bind: /var/lib/docker-airvideoserver-hd/data
+                mode: rw
+        /var/lib/docker-airvideoserver-hd/converted:
+                bind: /var/lib/docker-airvideoserver-hd/converted
+                mode: rw
+privileged: false
+tty: false
+working_dir: /root
+environment: {}
+network_mode: bridge
+command: {}

@@ -2,3 +2,4 @@ airvideoserver-hd/src/AirVideoServerHD-*.tar.bz2
 .rpmbuild
 .rpms
 repo
+.repo

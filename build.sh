@@ -14,7 +14,7 @@ svarog
 
 # collect packages
 rm -rf .rpms && mkdir -p .rpms
-find ./repo -type f -name "*.rpm" -exec cp {} ./.rpms \;
+find ./.repo -type f -name "*.rpm" -exec cp {} ./.rpms \;
 
 # build deps
 rpmbuild --rebuild srpms/miniupnpc-1.8-1.fc20.src.rpm

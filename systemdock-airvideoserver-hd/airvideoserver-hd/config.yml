@@ -1,4 +1,4 @@
-container: rpavlyuk/c7-airvideoserver-hd
+container: docker.io/rpavlyuk/c7-airvideoserver-hd
 created: 2018-01-02 13:53:53.501852
 name: airvideoserver-hd
 ports:

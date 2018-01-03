@@ -12,16 +12,16 @@ volumes:
                 bind: /media
                 mode: ro
         /etc/docker-airvideoserver-hd/Server.properties:
-                bind: /etc/docker-airvideoserver-hd/Server.properties
+                bind: /etc/airvideoserver-hd/Server.properties
                 mode: ro
         /var/lib/docker-airvideoserver-hd/logs:
-                bind: /var/lib/docker-airvideoserver-hd/logs
+                bind: /var/lib/airvideoserver-hd/logs
                 mode: rw
         /var/lib/docker-airvideoserver-hd/data:
-                bind: /var/lib/docker-airvideoserver-hd/data
+                bind: /var/lib/airvideoserver-hd/data
                 mode: rw
         /var/lib/docker-airvideoserver-hd/converted:
-                bind: /var/lib/docker-airvideoserver-hd/converted
+                bind: /var/lib/airvideoserver-hd/converted
                 mode: rw
 privileged: false
 tty: false

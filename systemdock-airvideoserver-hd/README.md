@@ -1,5 +1,3 @@
-= SystemDock profile for Svarog CI container
+# SystemDock profile for Air Video Server container
 
-Profile to run Svarog CI container as systemd service using SystemDock (https://github.com/rpavlyuk/systemdock)
-
-WORK IN PROGRESS
+Profile to run Air Video Server HD container as ```systemd``` service using SystemDock (https://github.com/rpavlyuk/systemdock)
